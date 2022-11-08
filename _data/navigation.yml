@@ -2,9 +2,9 @@
 main:   
   - title: "Blog Posts"
     url: /year-archive/
-
+ 
   - title: "TILs"
-    url: /tils/
-    
+    url: /talks/ 
+
   - title: "Guide"
     url: /markdown/
