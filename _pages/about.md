@@ -10,7 +10,7 @@ redirect_from:
 
 
 ### My Aims for this website 
-======
+
 <style> body {text-align: justify} </style>
 
 I enjoy the struggle of learning new things, but I often find that information resources frequently scrape the surface of a topic or contain information that is useful in theory but not in practice. By documenting my learnings I aim to compile a 'second-brain' to refer back to on-demand. I aim to write detailed blog posts on topics that I have researched to some signifcant degree (from my naive viewopint) and today I learnt (TIL) - which will often be insights from books I've read. Such posts will hopefully differentiate themselves from the crowded information that is already out there.
