@@ -1,7 +1,7 @@
 ---
 title: 'Single Cell Transcriptomics'
 date: 2022-11-07
-permalink: /posts/singlecelltranscriptomics/
+permalink: /year-archive/singlecelltranscriptomics/
 tags:
   - ngs
   - scRNAseq
