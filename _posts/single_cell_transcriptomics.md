@@ -1,5 +1,5 @@
 ---
-title: 'An Introduction to Single Cell Transcriptomics'
+title: 'Single Cell Transcriptomics'
 date: 2022-11-07
 permalink: /posts/2012/08/library-preparation-for-next-generation-sequencing/
 tags:
