@@ -43,7 +43,7 @@ Bulk methods are cheaper to peform and often carried out as a triage to single c
 
 ![different -omics technologies](/images/omics_overview.png)
 
-*Fig.3. Upper; The combination of multiple omics techniques (genomics, transcriptomics, proteomics and metabolomics) allows the identification of non-linear relationships in cell dynamics, otherwise missed by a single technique. Lower; single cell transcriptomics preserves information about cellular heterogeneity. This information is lost using bulk methods because gene expression changes are averaged over thousands/millions of cells. * 
+*Fig.3. Upper; The combination of multiple omics techniques (genomics, transcriptomics, proteomics and metabolomics) allows the identification of non-linear relationships in cell dynamics, otherwise missed by a single technique. Lower; single cell transcriptomics preserves information about cellular heterogeneity. This information is lost using bulk methods because gene expression changes are averaged over thousands/millions of cells.* 
 
 ### An experimental overview of single cell transcriptomics 
 
