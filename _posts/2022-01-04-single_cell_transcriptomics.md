@@ -15,7 +15,7 @@ tags:
 ### Introduction
 Biology is messy. Even deciding the right questions to ask represents a large unknown biological 'space' that is complicated by non-linearity and layers of gradation. These challenge the deliniation of where certain biological properties emerge. High throughput (HT) studies aim to mitigate this caveat because the profiling of thousands of samples often leads to fortuitous biological discoveries. For instance, single cell transcriptomics (scRNAseq) has scaled massively since its inception in 2008 (Fig.1). One archetypical application being the identification of cellular sub-types (e.g. T-cell subsets in tumour microenvironments) which may be predicative of cancer prognosis' and treatment response. Whether all these scRNAseq publications and consortiums have actually advanced our biological understanding is a separate question.
 
-[the increase in throughput of single cell studies over time](/images/single_cell_publications.png)
+![the increase in throughput of single cell studies over time](/images/single_cell_publications.png)
 
 *Fig.1. The increase in throughput of single cell transcriptomics studies has been exponential.* 
 
@@ -26,7 +26,7 @@ There are plenty medium articles explaining the 'ideal data analysis workflow' f
 *Fig.2. Nucleic acids are polar. The 3' end terminates with a hydroxyl group (-OH) and the 5' end terminates with a negatively charged phosphate (PO4-2). DNA is transcribed by RNA polymerase into mRNA transcripts. The instabiity of mRNA means that its quantification provides a good model for measuring gene expression.* 
 
 
-#### Overview
+### Overview
 * An experimental overview of scRNAseq focused on the QIAseq 3' transcriptome kit. 
     * Cell lysis 
     * Reverse transcription (mRNA -> cdNA)
@@ -47,11 +47,11 @@ Bulk methods are cheaper to peform and often carried out as a triage to single c
 
 ### An experimental overview of single cell transcriptomics 
 
-#### Cell lysis 
+### Cell lysis 
 
 Cell lysis can be performed by numerous methods. The aim is to break down the phospholipid bilayer membrane that encapsulates the cell and release the subcellular material. In essence the membrane protectes the cell from its aqeuous environment because the two environments are immiscible. A detergent is both hydrophobic and hydrophillic so disrupts this separation by forming interactions with the membrane and the surrounding solution to destroy the protective lipid barrier. As we are interested in RNA we can also add an enzyme that degrades proteins e.g. proteinase K. Moreover, RNA is intrinsically unstable, because it is single stranded, and readily degraded by ubiquitious RNases. The recovery of mRNA from cell lysates is improved using RNAase inhibitors. 
 
-##### Reverse transcription of RNA to cDNA 
+### Reverse transcription of RNA to cDNA 
 
 Transcription is the process of converting DNA into RNA. Since we are monitoring the transcriptome, we need to perform reverse transcription (RNA → complementary DNA). Firstly, we need to capture the RNA. During the synthesis of mRNA from DNA a long stretch of adenine nucleotides (a poly-A tail) are added to one end of the newly synthesised RNA to increase the stability of mRNA. Most protocols utilise this polyA tail to capture mRNA using a complementary oligo-dT (essentially a poly-T tail) which can base pair with the poly-A tail on the mRNA. This oligo-dT acts as a primer for the reverse transcription (RNA → cDNA) reaction (Fig.4). To catalyse the reaction using the oligo-dT as a starting point also requires an enzyme (reverse transcriptase) which extends the oligo-dT primer by joining conitguous complementary DNA nucleotides. This synthesises the first strand of cDNA and forms a cDNA-RNA duplex. 
 
@@ -68,13 +68,13 @@ For instance, say there is one copy of transcript X and two copies of transcript
 
 During this reaction we can also peform rRNA depletion by using special oligos that contain locked nucleic acids. These bind rRNA more tightly than the oligodT primer. Although this doesn't strictly degrade rRNAs it prevents their amplification in subsequent steps.  
 
-#### cDNA clean-up 
+### cDNA clean-up 
 
 To increase the concentration of cDNA for sequencing and to remove impurities (e.g. primers, free dNTPs and salts from PCR reactions) we need to perform purification of our cDNA. Ethanol purification involving 'beads' is a common method. The beads are magnetic and the solution often contains a high concentration of salt and polyethylene glycol (PEG). Ethanol forms hydrogen bonds with the aqeuous solution ('absorbing water') and the positively charged salt ions (Na+) precipiate the negatively charged cDNA. PEG can add greater impetus to this reaction through its function as a 'crowding agent' . PEG can crash the DNA out of solution and onto these beads which can be magnetically separated from impurities in the solution. 
 
 Now we have a purified cDNA library generated from all the transcripts originally in the cell. This step is performed multiple times throughout the workflow (usually after PCR) to remove PCR reagents and buffers that would interfere with other reactions. 
 
-#### Fragmentation, 'End-repair' and A tailing
+### Fragmentation, 'End-repair' and A tailing
 
 Illumina sequencing is a short-read sequencing technology that can only read short sequences of ~150 bp. To sequence our cDNA library we must use an enzyme to cut our library into small fragments that can be sequenced (Fig.5). As these endonuclease enzymes do not always cut cleanly to give straight ends, overhanging ends of the library are 'evened out' using a DNA polymerase. This fragmentation step means that our library can no longer be amplified using the previous primers. To circumvent this an dATP is added to the 3' end of the library (A-tailing/poly-A addition). This can be performed by supplementing the reaction with dATP only and using a non-proof reading DNA polymerase. This adenine overhang functions as a primer for T-tailed adapters too be ligated onto our library. These adapters are common oligos that are required for our library to hybridise with the flow cell of Illumina sequencers. These are ligated onto the 5' and 3' end of the library so that the library can be sequenced in both directions. The inclusion of a sample index into the adapter oligo can also enable the multiplexing of many samples i.e. the combination of several cDNA libraries into a single reaction vessel for sequencing, rather than performing multiple individual runs. 
 
@@ -88,7 +88,7 @@ Out of all the previous aforementioned steps this step is of the lowest fidelity
 
 *Fig.6. Capillary electrophoresis plot where PCR over-amplification has occurred. bp = base pair and FU = fluorescence units.* 
 
-#### Sequencing 
+### Sequencing 
 
 The overamplified double-stranded cDNA library is denatured using NaOH which breaks the hydrogen bonds that separate the strands. The library is then mixed with hybridisation buffer to enable the hybridisation of the library to the flow cell via complementary base bairing between the libraries adapter sequences and those adapters hybridised to the flow cell. 
 
