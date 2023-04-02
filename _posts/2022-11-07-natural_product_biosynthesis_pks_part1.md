@@ -59,7 +59,7 @@ Elimination reactions such as dehydrations are common in biochemistry and often 
 
 Epoxidations generate cyclic ethers (Fig.5). In comparison to aliphatic ethers, their strained geometry makes cyclic ethers unusually reactive as nucleophiles, with the capability to generate long polyethers via a chain reaction of epoxidations (Fig.5; Lower). 
 
-![Figure 5. Example of an expodiation mechanism](/images/epoxidation_mechanism_example.png). *Figure 5. Example of an epoxidation reaction (Upper mechanism). Here an alkene reacts with an ester to form a cyclic ether via a carbocation intermediate. You can see how the reaction could proceed in the reverse direction with the polyether being the nucleophile rather than the ether group (or how multiple cyclic ethers could be joined together as shown in the lower mechanism). I don't know if this is a real mechanism but it appears plausible to me and from it you can see how more complex molecules can begin to form from the repetition of simple mechanisms.* 
+![Figure 5. Example of an expodiation mechanism](/images/epoxidation_mechanism_example.png) *Figure 5. Example of an epoxidation reaction (Upper mechanism). Here an alkene reacts with an ester to form a cyclic ether via a carbocation intermediate. You can see how the reaction could proceed in the reverse direction with the polyether being the nucleophile rather than the ether group (or how multiple cyclic ethers could be joined together as shown in the lower mechanism). I don't know if this is a real mechanism but it appears plausible to me and from it you can see how more complex molecules can begin to form from the repetition of simple mechanisms.* 
 
 ### A minimal PKS assembly line 
 
