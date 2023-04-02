@@ -29,7 +29,7 @@ Mechanisms covered:
 
 Isomerisation involves a rearangment that leaves the overall molecular weight of a compound unaltered. Enolisation (a type of tautomerisation involving proton transfers) is a type of isomerisation that occurs frequently in biochemistry and involves the interconversion between a ketone and an enol (Fig. 1). The two are in equilibrium and can be used by nature to drive reactions forward. These are commonly found in PKSs in order to form aromatic rings from cyclic chains. 
 
-![Figure 1. Example of an enolisation mechanism ](/images/keto_enol_tautomerisation.png)*Figure 1. Example of an enolisation mechanism. A base abstracts a proton and a pair of electrons then gravitates towards the delta positive carbon of the carbonyl group to form a double bond. This repels electrons within the carbonyl group to accept a proton to stabilise the growing negative charge. *
+![Figure 1. Example of an enolisation mechanism ](/images/keto_enol_tautomerisation.png)*Figure 1. Example of an enolisation mechanism. A base abstracts a proton and a pair of electrons then gravitates towards the delta positive carbon of the carbonyl group to form a double bond. This repels electrons within the carbonyl group to accept a proton to stabilise the growing negative charge.*
 
 #### Claisen condensation
 
@@ -52,14 +52,14 @@ There can be two types of nucleophillic substitution reactions: (i) SN1 and (ii)
 
 Elimination reactions such as dehydrations are common in biochemistry and often proceed by an E1cb mechanism (Fig.4). This is favoured under basic conditions and involves poor leaving groups (C=0/O-R), although acidic hydrogens can increase their reactivity. Acidic hydrogens lie between strong electron withdrawing groups. The most acidic hydrogens would be those situated between two carboxylic acid groups e.g. those in a dicarboxylic acid, because they would have a strong tendency to be lost as H+ in order to stabilise the negatively charged groups.
 
-![Figure 4. Example of an elimination mechanism](/images/elimination_reaction_example.png) *Figure 4. Example of an elimination mechanism. In this example there is a carbonly group which is a poor leaving group because of its double bond. Protonation via a nucleophillic addition reaction involving NADPH as the reductant (a hydride ion is the nucleophile) could oxidise the carbonly to an alcohol which is a more reactive leaving group. A base catalysed reaction could then proceed involving the loss of water and the subsequent regeneration of the base by bulk solvent. The base may be a basic residue of an enzymes active site e.g. histidine, arginine or lysine (They are basic residues because they are all positively charged at physiological pH). Histidine is especially common in biological mechanisms because it can readily interconvert between neutral and +1 charged which makes it a good catalyst. 
+![Figure 4. Example of an elimination mechanism](/images/elimination_reaction_example.png) *Figure 4. Example of an elimination mechanism. The carbonyl a poor leaving group because of its double bond. Protonation via a nucleophillic addition reaction involving NADPH as the reductant (a hydride ion is the nucleophile) could oxidise the carbonly to an alcohol to increase its reactivity. A base catalysed reaction could then proceed involving the loss of water and the subsequent regeneration of the base by bulk solvent. The base may be a basic residue of an enzymes active site e.g. histidine, arginine or lysine (They are basic residues because they are all positively charged at physiological pH). Histidine is especially common in biological mechanisms because it can readily interconvert between neutral and +1 charged, making it a good catalyst.*
 
 
 #### Expoxidation 
 
 Epoxidations generate cyclic ethers (Fig.5). In comparison to aliphatic ethers, their strained geometry makes cyclic ethers unusually reactive as nucleophiles, with the capability to generate long polyethers via a chain reaction of epoxidations (Fig.5; Lower). 
 
-![Figure 5. Example of an expodiation mechanism](/images/epoxidation_mechanism_example.png). *Figure 5. Example of an epoxidation reaction (Upper mechanism). Here an alkene reacts with an ester to form a cyclic ether via a carbocation intermediate. You can see how the reaction could proceed in the reverse direction with the polyether being the nucleophile rather than the ether group (or how multiple cyclic ethers could be joined together as shown in the lower mechanism). I don't know if this is a real mechanism but it appears plausible to me and from it you can see how more complex molecules can begin to form from the repetition of simple mechanisms. 
+![Figure 5. Example of an expodiation mechanism](/images/epoxidation_mechanism_example.png). *Figure 5. Example of an epoxidation reaction (Upper mechanism). Here an alkene reacts with an ester to form a cyclic ether via a carbocation intermediate. You can see how the reaction could proceed in the reverse direction with the polyether being the nucleophile rather than the ether group (or how multiple cyclic ethers could be joined together as shown in the lower mechanism). I don't know if this is a real mechanism but it appears plausible to me and from it you can see how more complex molecules can begin to form from the repetition of simple mechanisms.* 
 
 ### A minimal PKS assembly line 
 
@@ -75,7 +75,7 @@ The below steps describe Fig.6:
 4. This loading and extension process is repeated depending on the number of modules (KS, AT, ACP) of the PKS. When the growing polyketide chain reaches the terminating module it is transesterified onto a thioesterase domain. Here the polyketide can be released from the PKS in a number of ways, most commonly by hydrolysis or cyclisation of the chain. 
 5. Tailoring enzymes, not 'bound' to the PKS assembly line, can further functionalise the polyketide.
 
-![Figure 6. A minimal PKS assembly line](/images/PKS_overview.png) *Figure 6. A minimal PKS assembly line. Only the transesterification of the extender unit is shown, not the starter unit. 
+![Figure 6. A minimal PKS assembly line](/images/PKS_overview.png) *Figure 6. A minimal PKS assembly line. Only the transesterification of the extender unit is shown, not the starter unit.*
 
 
 ### PKS example 1
