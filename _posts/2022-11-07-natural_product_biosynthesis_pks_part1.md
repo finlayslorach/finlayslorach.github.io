@@ -1,6 +1,6 @@
 ---
 title: 'Natural product biosynthesis 1. Part 1'
-date: 2022-11-07
+date: 2022-12-11
 permalink: /posts/2012/08/natural-product-biosynthesis-pks/
 tags:
   - biochemistry
@@ -12,9 +12,9 @@ tags:
 
 ### Introduction 
 
-There are upwards of 10^5 natural products that can be synthesised from simple building blocks [1]. These precursors are often compounds with a low diversity of atoms (mostly C, H and O) which can assemble into complex molecules through simple biosythetic routes. The complexity can arise through the simple repetition of these reactions. Although simple, these reactions are often challenging to synthetically perform because of their slow kinetics under standard laboratory conditions. Not only do biological enzymes funnel precursors down a shute of otherwise thermodynamically impossible reaction routes - such as hydride transfers and intramolecular cyclisations - they also exhibit exquisite stereoselectivity. Although simple, this perfectly executed catalysis is essential when the number of reaction steps becomes large - as is the case for more complex biological compounds. An understanding of these biological mechanisms is thus important from a syntehtic chemisry perspective and for exploiting biological pathways to generate novel natural products.
+There are upwards of 10^5 natural products, the majority of which are synthesised from simple building blocks [1]. These precursors are often compounds with a low diversity of atoms (mostly C, H and O) which can assemble into complex molecules through simple biosythetic routes. Despite appearing 'simple', these reactions are often challenging to synthetically perform because of their slow kinetics under standard laboratory conditions. Not only do biological enzymes funnel precursors down a shute of otherwise thermodynamically impossible reaction routes - such as hydride transfers and intramolecular cyclisations - they also exhibit exquisite stereoselectivity. Such perfectly executed catalysis is essential when the number of reaction steps becomes large - as is the case for larger and complex biological compounds. An understanding of these biological mechanisms is thus important from a syntehtic chemisry perspective and for exploiting biological pathways to generate novel natural products.
 
-This post will describe polyketide synthases (PKSs). These are large megasynthases (>1.1 MDa), majorily found in fungi, that are arranged in  modular assembly lines. Each module ascribes a new building block to be joined onto the growing compound and is modular in that different enzymes can be inserted into the assembly line to further decorate the compound with greater functionality e.g hydroxyl, methoxymethyl and glycosylation groups. I hope that there is a general theme of the emergence of complexity through simple repetition. 
+This post will describe polyketide synthases (PKSs). These are large megasynthases (>1.1 MDa), majorily found in fungi, that are arranged in  modular assembly lines. Each module defines a new building block to be joined onto the growing compound and is modular in that different enzymes can be inserted into the assembly line to further decorate the compound with greater functionality e.g hydroxyl, methoxymethyl and glycosylation groups. Throughout this post I attempt to mantain a theme of the emergence of complexity through simple and repetitive mechanisms. 
 
 
 ### General biological mechanisms
@@ -29,20 +29,20 @@ Mechanisms covered:
 
 Isomerisation involves a rearangment that leaves the overall molecular weight of a compound unaltered. Enolisation (a type of tautomerisation involving proton transfers) is a type of isomerisation that occurs frequently in biochemistry and involves the interconversion between a ketone and an enol (Fig. 1). The two are in equilibrium and can be used by nature to drive reactions forward. These are commonly found in PKSs in order to form aromatic rings from cyclic chains. 
 
-![Figure 1. Example of an enolisation mechanism ](/images/keto_enol_tautomerisation.png)*Figure 1. Example of an enolisation mechanism. A base abstracts a proton and a pair of electrons then gravitates towards the delta positive carbon of the carbonyl group to form a double bond. This repels electrons within the carbonyl group to accept a proton to stabilise the growing negative charge.*
+![Figure 1. Example of an enolisation mechanism ](/images/keto_enol_tautomerisation.png)*Figure 1. Example of an enolisation mechanism. A base abstracts a proton and a pair of electrons then gravitates towards the delta positive carbon of the carbonyl group to form a double bond. This repels electrons within the carbonyl group to accept a proton in order to stabilise the growing negative charge.*
 
 #### Claisen condensation
 
-A claisen condensation involves the condensation of esters. Decarboxylative driven condensations by decaboxylases are common. Rather than writing this mechanism in one go I often find it easier to visualise an overview of an mechanism by breaking down the mechanism into steps and tracking the movement of electrons. In biology, the ester reactants may be activated at an enzymes active site through formation of a thioester which is more reactive than an ester because sulfur is a stronger nucleophile. 
+A claisen condensation involves the condensation of esters. Decarboxylative driven condensations by decaboxylases are common. Rather than writing this mechanism in one go I often find it easier to visualise an overview of a mechanism by digesting it into steps where I'm able to track the movement of electrons. In biology, the ester reactants in Fig.2 may be activated at an enzymes active site through formation of a thioester which is more reactive than an ester due to sulfur being a stronger nucleophile. 
 
-![Figure 2. Example of a claisen condensation between two esters](/images/claisen_condensation.png) *Figure 2. Example of a claisen condensation between two esters. (1) Loss of CO2 drives the reaction forward by forming an enolate ion. (2) This creates a double bond that acts as a nucleophile to attack the delta carbon of the carbonly group. (3) If there is a strong nucleophile bound to the carbonly this will be expelled via an enolate intermediate.*
+![Figure 2. Example of a claisen condensation between two esters](/images/claisen_condensation.png) *Figure 2. Example of a claisen condensation between two esters. (1) Loss of CO2 drives the reaction forward by forming an enolate ion. (2) This creates a double bond that acts as a nucleophile to attack the delta carbon of the carbonyl group. (3) If there is a strong nucleophile bound to the carbonyl this will be expelled via an enolate intermediate.*
 
 
 #### Nucleophillic  acyl substitution reactions
 
-Nucleophillic acyl subsitution reactions involve a nucleophile attacking a carbonyl group to generate a R-CONu (Fig.3). The reaction largely depends on the stability of the carbonyl group (Figure 2). Amides are the least reactive because resonance stabilisation makes NH2 a poor leaving group. Acyl phosphates are very reactive and divalent cations (Mg2+) can further stablilise the negatively charged phosphate (PO42-) to increase reactivity of the leaving group.
+Nucleophillic acyl subsitution reactions involve a nucleophile attacking a carbonyl group to generate a R-CONucleophile (Fig.3). The reaction largely depends on the stability of the carbonyl group (Figure 2). For instance, amides are the least reactive because resonance stabilisation makes NH2 a poor leaving group, whilst acyl phosphates are very reactive with divalent cations (Mg2+) further stabilising the negatively charged phosphate (PO42-) to increase its reactivity. 
 
-![Figure 3. Example of a nucleophillic acyl substitution mechanism](/images/nucleophillic_acyl_substitution.png) *Figure 3. Example of a nucleophillic acyl substitution mechanism. A nucleophile attacks the carbonly group with the subsequent movement of electrons within the carbonly group expelling the weaker nucleophillic leaving group (X).*
+![Figure 3. Example of a nucleophillic acyl substitution mechanism](/images/nucleophillic_acyl_substitution.png) *Figure 3. Example of a nucleophillic acyl substitution mechanism. A nucleophile attacks the carbonyl group with the subsequent movement of electrons within the carbonyl group expelling the weaker nucleophillic leaving group (X).*
 
 There can be two types of nucleophillic substitution reactions: (i) SN1 and (ii) SN2. These are named based on the rate limiting step of the reaction. In SN1 reactions the rate determining step is the loss of the leaving group (which in this case is often strong e.g. diphosphates). Once the leaving group is lost a, often weak, nucleophile can attack the carbocation. In SN2 reactions the rate is dependent on the concentration of the substrate and nucleophile. The nuclephile attacks furthest away from the leaving group (backside) in a single step reaction. This can result in inversion of the stereocentre if a chiral carbon is the recipient of the attack.
 
@@ -50,22 +50,22 @@ There can be two types of nucleophillic substitution reactions: (i) SN1 and (ii)
 
 #### Elimination
 
-Elimination reactions such as dehydrations are common in biochemistry and often proceed by an E1cb mechanism (Fig.4). This is favoured under basic conditions and involves poor leaving groups (C=0/O-R), although acidic hydrogens can increase their reactivity. Acidic hydrogens lie between strong electron withdrawing groups. The most acidic hydrogens would be those situated between two carboxylic acid groups e.g. those in a dicarboxylic acid, because they would have a strong tendency to be lost as H+ in order to stabilise the negatively charged groups.
+Elimination reactions such as dehydrations are common in biochemistry and often proceed by an E1cb mechanism (Fig.4). This is favoured under basic conditions and involves a poor leaving group (C=0/O-R). If there are acidic hydrogens present, which lie between strong electron withdrawing groups, this can increase the reactivity of the leaving group. The most acidic hydrogens would be those situated between two carboxylic acid groups e.g. those in a dicarboxylic acid, because they would have a strong tendency to be lost as H+ in order to stabilise the growing negative charge.
 
-![Figure 4. Example of an elimination mechanism](/images/elimination_reaction_example.png) *Figure 4. Example of an elimination mechanism. The carbonyl a poor leaving group because of its double bond. Protonation via a nucleophillic addition reaction involving NADPH as the reductant (a hydride ion is the nucleophile) could oxidise the carbonly to an alcohol to increase its reactivity. A base catalysed reaction could then proceed involving the loss of water and the subsequent regeneration of the base by bulk solvent. The base may be a basic residue of an enzymes active site e.g. histidine, arginine or lysine (They are basic residues because they are all positively charged at physiological pH). Histidine is especially common in biological mechanisms because it can readily interconvert between neutral and +1 charged, making it a good catalyst.*
+![Figure 4. Example of an elimination mechanism](/images/elimination_reaction_example.png) *Figure 4. Example of an elimination mechanism. The carbonyl a poor leaving group because of its double bond. Protonation via a nucleophillic addition reaction involving NADPH/NADH as the reductant (a hydride ion is the nucleophile) could oxidise the carbonyl to an alcohol to increase its reactivity. A base catalysed reaction could then proceed involving the loss of water and the subsequent regeneration of the base by bulk solvent. The base may be a basic residue of an enzymes active site e.g. histidine, arginine or lysine (They are basic residues because they are all positively charged at physiological pH). Histidine is especially common in biological mechanisms because it can readily interconvert between neutral and +1 charged, making it a good catalyst.*
 
 
 #### Expoxidation 
 
-Epoxidations generate cyclic ethers (Fig.5). In comparison to aliphatic ethers, their strained geometry makes cyclic ethers unusually reactive as nucleophiles, with the capability to generate long polyethers via a chain reaction of epoxidations (Fig.5; Lower). 
+Epoxidations generate cyclic ethers (Fig.5). In comparison to aliphatic ethers, their strained geometry makes cyclic ethers unusually reactive as nucleophiles, with the capability to generate long polyethers via chained epoxidation reactions (Fig.5; Lower). 
 
 ![Figure 5. Example of an expodiation mechanism](/images/epoxidation_mechanism_example.png) *Figure 5. Example of an epoxidation reaction (Upper mechanism). Here an alkene reacts with an ester to form a cyclic ether via a carbocation intermediate. You can see how the reaction could proceed in the reverse direction with the polyether being the nucleophile rather than the ether group (or how multiple cyclic ethers could be joined together as shown in the lower mechanism). I don't know if this is a real mechanism but it appears plausible to me and from it you can see how more complex molecules can begin to form from the repetition of simple mechanisms.* 
 
 ### A minimal PKS assembly line 
 
-A minimal PKS module requires three essential enzymes arranged linearly; ketosynthase (KS) acyltransferase (AT) and ACP domains, with each module elongating the compounds chain further. The inputs into this assembly line are secondary metabolites from metabolic processes e.g. acetly-coA and malonyl-coA are derived from the acetate pathway in lipid metabolism. A starter unit is loaded onto the loading module (module 0) and the extender unit is loaded onto the next module (module 1). These two units are then joined together and subsequently released from the PKS. This repetitive process forms long B-ketothioester chains (Beta: because the keto group of the precursor is 2nd from the carboxyl group; thioester; RC=OS-ACP).
+A minimal PKS module requires three essential enzymes arranged linearly; ketosynthase (KS) acyltransferase (AT) and ACP domains, with each module elongating the compounds chain further. The inputs into this assembly line are secondary metabolites from metabolic processes e.g. acetyl-coA and malonyl-coA are derived from the acetate pathway in lipid metabolism. A starter unit is loaded onto the loading module (module 0) and the extender unit is loaded onto the next module (module 1). These two units are then joined together and subsequently released from the PKS. This repetitive process forms long B-ketothioester chains (Beta: because the keto group of the precursor is 2nd from the carboxyl group; thioester; RC=OS-ACP).
 
-Before one of these starter units can be loaded, the assembly line must be primed. It is also important to note that the following is the minimum number of domains required for a PKS. A PKS may have additional domains of a variety of functions e.g. methyltransferases and ketoreductases. 
+Before one of the starter units can be loaded, the assembly line must be primed. It is also important to note that the following is the minimum number of domains required for a PKS (Fig.6). A PKS may have additional domains of a variety of functions. Methyltransferases, involved in the transfer of methyl groups, and ketoreductase, involved in the reduction of a ketone to an alcohol, are a couple of examples. 
 
 The below steps describe Fig.6:
 
@@ -93,9 +93,9 @@ Retrosynthesis of the following compound was a problem I was given (Fig.7). I do
 
    ![Figure 8. Synthesis of malonyl-coA](/images/malonyl_coA_synthesis.png)
    
-   To synthesise methylmalonylcoA, a SAM dependent methylase enzyme adds a methyl group to acetyl-coA to generate           
-   propionyl-coA (Fig.9). This is followed by the same aforementioned carboxylation dependent reaction to generate
-   methylmalonlycoA.
+   To synthesise methylmalonylcoA, a SAM dependent methylase enzyme adds a methyl group to acetyl-coA to generate propionyl-coA (Fig.9). Notice that the   
+   leaving group in this reaction is the amino acid methionine. This is followed by the same aforementioned carboxylation dependent reaction to 
+   generate methylmalonlycoA.
 
    ![Figure 9. Synthesis of methylmalonyl-coA](/images/methyl_malonyl_coA.png). 
 
