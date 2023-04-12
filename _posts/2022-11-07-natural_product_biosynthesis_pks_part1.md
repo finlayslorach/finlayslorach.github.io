@@ -91,7 +91,7 @@ Consider the retrosynthesis of compound A in Fig.7. I don't know the name of the
 
 2. Acetyl-coA is a product of the acetate pathway. Malonyl-coA can be produced in an aldol reaction between CO2 and acetyl-coA via an enolate ion intermediate and catalysed by the biotin dependent acetyl-coA carboxylase (Fig.8). 
 
-   ![Figure 8. Synthesis of malonyl-coA](/images/malonyl_coA_synthesis.png)
+   ![Figure 8. Synthesis of malonyl-coA](/images/malonly_coA_synthesis.png)
    
    To synthesise methylmalonylcoA, a SAM dependent methylase enzyme adds a methyl group to acetyl-coA to generate propionyl-coA (Fig.9). Notice that the   
    leaving group in this reaction is the amino acid methionine. This is followed by the same aforementioned carboxylation dependent reaction to 
