@@ -75,7 +75,7 @@ The below steps describe Fig.6:
 4. This loading and extension process is repeated depending on the number of modules (KS, AT, ACP) of the PKS. When the growing polyketide chain reaches the terminating module it is transesterified onto a thioesterase domain. Here the polyketide can be released from the PKS in a number of ways, most commonly by hydrolysis or cyclisation of the chain. 
 5. Tailoring enzymes, not 'bound' to the PKS assembly line, can further functionalise the polyketide.
 
-![Figure 6. A minimal PKS assembly line](/images/PKS_overview.png) *Figure 6. A minimal PKS assembly line. Only the transesterification of the extender unit is shown, not the starter unit.*
+![Figure 6. A minimal PKS assembly line](/images/PKS_overview.png)*Figure 6. A minimal PKS assembly line. The transesterification of the starter unit is onto the ACP domain is not shown.*
 
 
 ### PKS example 1
