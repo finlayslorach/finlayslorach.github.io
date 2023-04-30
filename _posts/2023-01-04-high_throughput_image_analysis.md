@@ -1,6 +1,6 @@
 ---
-title: 'Part 1: Quantifying cellular morphology using Deep Learning'
-date: 2022-11-07
+title: 'Quantification of cellular morphology using Deep Learning'
+date: 2022-12-07
 permalink: /posts/2012/08/quantifying-cellular-morphology-using-deep-learning/
 tags:
   - image analysis
@@ -13,16 +13,16 @@ tags:
 ---
 <style> body {text-align: justify} </style>
 
-#### Introduction 
+### Introduction 
 
-The machine learning/Artificial intelligence field has made quantum leaps in the past few years. The advent of AlphaFold, stable diffusion (e.g. the [DALL-E](https://openai.com/dall-e-2/) model) and chatGPT are a few recent examples. Deep Learning is a branch of machine learning that uses large neural networks. These are inspired by biological neural networks in that they have a set of inputs and outputs, with the layers in between them being defined by a set of parameters which form a representation that maps given inputs to outputs. How is this learning? The set of parameters are learned by running the model on a training dataset. When the model is applied to an unseen dataset during runtime, the accuracy of the model is dependent on whether the learned parameters remain to faithfully predict the correct output. One category of deep learning is for image recognition. For those who want to learn more, I recommend the [fastai](https://www.fast.ai/) course by Jeremy Howard. 
+The machine learning/Artificial intelligence field has made quantum leaps in the past few years. The advent of AlphaFold, stable diffusion (e.g. the [DALL-E](https://openai.com/dall-e-2/) model) and chatGPT are a few recent examples. Deep Learning is a branch of machine learning that uses large neural networks. These are inspired by biological neural networks in that they have a set of inputs and outputs, with the layers in between them being defined by a set of parameters which form a representation that maps given inputs to their outputs. How is this learning? The set of parameters are learned by running the model on a training dataset. When the model is applied to an unseen dataset during runtime, the accuracy of the model is dependent on whether the learned parameters remain to faithfully predict the correct output. One category of deep learning is for image recognition. For those who want to learn more, I recommend the [fastai](https://www.fast.ai/) course by Jeremy Howard. 
 
 In this post I use a machine learning model for cell segmentation. Next, I combine cellProfiler (an open source image analysis software) with an implementation of a deep learning model (a resnet50) in PyTorch. This model is trained from scratch to morphologically classify cells after drug treatment. During this optimisation problem the model learns important features about cellular morphology that should temporally distinguish cells post treatment. This is termed a weakly supervised learning problem because we are creating artificial labels for our data, e.g. timepoints post drug treatment, in the hope that this will be sufficient for the models inference. All of the aforementioned code is dispatched to a linux high performance computer cluster (HPC) using bash scripts. Because I performed this work at a pharmaceutical company, I am not going to make the data available and will redact some of the data identifiable code. This work was also performed a couple years ago. It was exciting at the time and I am writing up what I learnt from this experience despite the method now being sort of outdated! For instance, I believe cellprofiler has integrated machine learning based segmentation methods and there is a whole consoritum for cell painting established by Anne Carpenter you can check out. Neverless, I learned a lot of programming skills applied to image analysis during this work. 
 
 
 ### An overview of the data 
 
-In this imaging experiment four dyes were used to monitor cell death after treatment with a chemotherapeutic: The nuclei dye Hoechst; the membrane dye cell tracker green; the early apoptotic dye annexin and the late apoptotic dye propidium iodide. Three replicates of cells were treated with seven drug concentrations (+ a no drug control) and imaged at 4 hrs, 8 hrs, 16 hrs, 24 hrs, 48 hrs and 72 hrs using a confocal microscope set to aquire nine fields of view (FOV) per sample across six Z-stacks. Each FOV contains a total of five channels (i.e. including the unstained brightfield channel). Therefore, we have a total of 12,960 image slices (8 x 6 x 9 x 6 x 5 x 3). This is the following outline of the project given the aforementioned information:
+In this imaging experiment four dyes were used to monitor cell death after treatment with a chemotherapeutic: the nuclei dye Hoechst; the membrane dye cell tracker green; the early apoptotic dye annexin, and the late apoptotic dye propidium iodide. Three replicates of cells were treated with seven drug concentrations (+ a no drug control) and imaged at 4 hrs, 8 hrs, 16 hrs, 24 hrs, 48 hrs and 72 hrs using a confocal microscope set to aquire nine fields of view (FOV) per sample across six Z-stacks. Each FOV contains a total of five channels (i.e. including the unstained brightfield channel). Therefore, we have a total of 12,960 image slices (8 x 6 x 9 x 6 x 5 x 3). This is the following outline of the project given the aforementioned information:
 
 * STEP 1: Perform a max-Z projection across the six Z-slices.
 * STEP 2: Perform cell segmentation.
@@ -125,7 +125,7 @@ python /hpc/scratch/hdd2/fs/CellToxExp/STEP1_Pre_processing_CellTox/pre_processi
 
 In this experiment the aim is to extract morpological information from single cells. Each cell will be used as an input into the deep learning model. This requires segmentation of the cells using the CellMask green stain in order to isolate each individual cell and create single cell cropped images for every field of view per condition. 
 
-Cell segmentation can be performed using arbitary pixel threshold methods (e.g. otsu) or machine learning. [Cellpose](https://www.nature.com/articles/s41592-020-01018-x) worked well for this dataset and the paper shows its applicability across a variety of cell types. The algorithm is based on a neural net trained to predict pixel values belonging to cells and their spatial gradients. The latter uses a heat diffusion model, where the spatial gradients radiating from the centre of the cell are predicted. All the pixels that flow to this centre are classified as being from the same cell. 
+Cell segmentation can be performed using arbitary pixel threshold methods (e.g. otsu) or machine learning. [Cellpose](https://www.nature.com/articles/s41592-020-01018-x) worked well for this dataset and the paper shows its applicability across a variety of cell types. The algorithm is based on a neural net trained to predict pixel values belonging to cells and their spatial gradients. The latter uses a heat diffusion model, where predicts the spatial gradients radiating from the centre of a cell. All the pixels that flow to this centre are classified as being from the same cell. 
 
 Cellpose can be run from a GUI [cell pose GUI](https://cellpose.readthedocs.io/en/latest/gui.html), but given that we have a large dataset we will run it from the command line using bash scripting. We will use the cellmask channel to segment the cell. The output of cellpose is a series of unique pixel values (termed cell masks) corresponding to each cell in the segmented images (i.e. each cell is a different grayscale pixel value). We can use this mapping to isolate individual cells and extract features such as the cell count and even more specific statistics such as cell size, roundness and eccentricity. The cells touching the border of the image are excluded because they would skew the overall statistics. 
 
@@ -159,8 +159,6 @@ done
 
 ### STEP 3: Model pre-processing  
 
-
-#### Part 1 
 
 One of the most useful pieces of information to deduce from this data is cell death over time and across the different concentrations. To extract these statistics we can use the open source image analysis software cell profiler. As we have thousands of images we can run the pipeline as a slurm job as long as cellprofiler is installed on your HPC cluster. In the below code I crop each individual cell from each brightfield image using the corresponding cell mask and then make each image the same size. Firstly, I loop through the saved pixel identity maps for each image and create a list of these pixel values. I then find the path to the corresponding brightfield image using the metadata from the filename of the pixel identity maps and crop each individual cell in each brightfield image using its corresponding pixel identity. The get_cropped_obj function loops through the pixel identity map list, converts the grayscale mask into a binary mask (1 - white/cell, 0 - black), identifies the x and y centre coordinates of the mask and applies a guassian blur (more details below) and uses this to save 200x200 pixel single cell images. 
 
@@ -272,7 +270,7 @@ if __name__ == '__main__':
 
 Now we have ~million single cell crops of the same size representing different timepoints and drug dosages. I will leave an explanation of the architecture of a resnet50 model for another post. In this case I wrote out a resent50 from scratch using the original [paper](https://arxiv.org/abs/1512.03385). As a summary, image classifiers are composed of different kernels/channels (just a small matrix that represents a function e.g. the guassian blur mentioned above is an example of a kernel) that 'detect' features of the input image. In a deep learning network these kernels are not predefined, rather they are randomly initialised and then optimised (as they are just matrices of numbers) to identify features that most faithfully predict the correct output. As a simple example, the final weights may 'learn' that a higher treatment dose correlates to rounder cells. You would hope that running such a large complicated model would not result in this simple mapping (because we could have deduced this from cellprofiler) but rather identify more complicated non-linear mappings.  
 
-Lets ignore the resnet50 model for now, but focus on how to process the input data of millions of cells for input into the model. Here the fastai library really comes in handy for doing most of the heavy lifting. First, we load the image files using a fastai built-in function. Next, we need to create a series of labels for our data using regex and the image filenames to get a unique number of labels and the number of labels (or classes). Then we randomly shuffle the data and split it 80% and 20% for the training and testing set respectively. Finally, I encode the filenames with a unique label (where 1 is the label e.g. {time_0:1, time_1:0, time_2:0} etc) that will represent the output layer of the neural network. To decode these labels I create a function that looks up the key of that given label (e.g. time_0 in this case). 
+Lets ignore the resnet50 model for now, but focus on how to process the input data of millions of cells for input into the model. Here the fastai library really comes in handy for doing most of the heavy lifting. First, we load the image files using a fastai built-in function. Next, we need to create a series of labels for our data using regex and our image filenames to get a unique number of labels and a label count (classes). Then we randomly shuffle the data and split it 80% and 20% for the training and testing set respectively. Finally, I encode the filenames with a unique label (where 1 is the label e.g. {time_0:1, time_1:0, time_2:0} etc) that will represent the output layer of the neural network. To decode these labels I create a function that looks up the key of that given label (e.g. time_0 in this case). 
 
 
 ```
@@ -342,9 +340,9 @@ train_y = train_files.map(label_encoder)
 valid_y = valid_files.map(label_encoder)
 ```
 
-Building a neural network in PyTorch requires a dataset class. There is the base class provided by PyTorch but here I created a new Dataset class which inherits from this base-in class, because the base class didn't work with my single cell crop images. When I create an input image I apply a transformation (in this case a resize to 224x224 image but it could be a shear or other transformation) and associate each image with a label. I modified the getitem attribute to associate each image with its corresponding label and then format the my single channel grayscale images in the correct RGB tensor format for PyTorch. 
+Building a neural network in PyTorch requires a dataset class. There is the base class provided by PyTorch, but this didn't work well with my single cell cropped images so I created a new Dataset class that inherited from the base class. When I create an input image I apply a transformation (in this case a resize to 224x224 image but it could be a shear or other transformation) and associate each image with a label. I modified the getitem attribute to associate each image with its corresponding label and then format the my single channel grayscale images in the correct RGB tensor format for PyTorch. 
 
-Next, we use the DataSet class to create training and validation datasets and finally training and validation iterators based on these datasets. The model will take 32 images at a time and won't shuffle them because we have already done that. I will explain more about how to create a resnet50 model in PyTorch in a separate post, but resnet50s have been out for ages! So expect to find lots of explanations online. 
+Next, we use the DataSet class to create training and validation datasets and finally training and validation iterators based on these datasets. The model will take 16 images at a time and won't shuffle them because we have already done that. I will explain more about how to create a resnet50 model in PyTorch in a separate post, but the resent50 has been out for ages! So expect to find lots of explanations online. 
 
 
 ```
@@ -407,7 +405,7 @@ model = model.to(device)
 loss_func = loss_func.to(device)
 ```
 
-The most useful part to do now is to derive biological insight from these predictions. We can identify what is seperating these different treatment groups by opening up the networks layers and extracting the features that predict the correct treatment group 60% of the time. I believe this took quite a long time to run. 
+The most useful part to do now is to derive biological insight from these predictions. We can identify what is seperating these different treatment groups by opening up the networks layers and extracting the features that predict the correct treatment group 60% of the time. 
 
 To extract the models embedding I focus on the final fully connected layer of the model, which has the dimension [0,2048]. I load the optimised weights generated from training and run the model without  updating of the models weights - I purely just want to see what the final layer of the network is. My model (see separate post) is set up to save the channels of the fully-connected layer. I concatenate all the embeddings from each batch of images fed to the model and save these alongside the ground truth label and the predicted label in a pickle file.
 
@@ -456,7 +454,7 @@ with open('representations_copy_full_3.pkl', 'wb') as f:
 
 ### STEP 5: Results
 
-Here is where we hopefully gain some biological insight from arduous data pre-processing and modelling we've done. I am going to discard the cellprofiler features for now (but these could be concatenated with the features from the deep learning network) and show how well the features we extracted solely from our resnet50 separate treatment groups using principal component analysis (PCA). PCA baisically summarises these high dimensional data by identifying the most important features that 'explain' the variance between data-points. The below code reads in the representations we extracted, converts their labels and predictions to a dataframe, removes features that have zero variance and selects the top 800 features that vary the most across the representations. These are then used to run PCA.  
+Here is where we hopefully gain some biological insight from arduous data pre-processing and modelling we've done. I am going to discard the cellprofiler features for now (but these could be concatenated with the features from the deep learning network) and show how well the features we extracted solely from our resnet50 separate treatment groups using principal component analysis (PCA). PCA baisically summarises these high dimensional data by identifying the most important features that 'explain' the variance between data-points. The below code reads in the representations we extracted, converts their labels and predictions to a dataframe, removes features that have zero variance, and selects the top 800 features that vary the most across the representations. These are then used to run PCA.  
 
 ```
 
@@ -500,7 +498,7 @@ pca_result = pca.fit_transform(df3)
 print('Variance PCA: {}'.format(np.sum(pca.explained_variance_ratio_)))
 ```
 
-Below is a PCA plot where each dot represents a single cell and is coloured separtely by timepoint (Left) and concentration (right). As expected, drug dose has a greater effect in separating cell points than time after treatment. The greater the difference in drug dose the larger the separation between groups (e.g. orange and purple coloured groups). This is just a starting point for exploring the models feature maps and theres lots more that could be done if i had more time. But I hope that this post has been a good introduction to how one might process high throughput imaging data, especially the pre-processing needed for modelling. 
+Below is a PCA plot where each dot represents a single cell and is coloured separtely by timepoint (Right) and concentration (Left). As expected, drug dose has a greater effect in separating single cells than time after treatment. The greater the difference in drug dose the larger the separation between groups (e.g. orange and purple coloured groups). This is just a starting point for exploring the models feature maps and theres lots more that could be done if I had more time, including combining the cellprofiler features with the deep learning extracted features. Regardless, I hope that this post has been a good introduction to how one might process high throughput imaging data, especially the pre-processing needed for modelling. 
 
 
 ```
@@ -519,7 +517,7 @@ plt.savefig('pca_plot_time_label.png')
 
 
 
-Do reach out to me with any good/bad opinion on this post! Thanks! :)
+Do reach out to me with any good or bad feedback on this post! Thanks! :)
 
 
 
